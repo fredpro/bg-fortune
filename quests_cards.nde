@@ -1,0 +1,34 @@
+PAGE=21,29.7,PORTRAIT,H
+LINKMULTI=Nb
+link=La Fortune aux Audacieux - V1 - Cartes Quêtes.csv
+cardsize=5.75,8.9
+
+[all]="1-{(Titre)*2}"
+[all_recto]="1-{(Titre)}"
+[all_verso]="{(Titre)+1}-{(Titre)*2}"
+
+[pos_titre]=1.2,0.5,3.35,0.5
+[pos_carac]=0.5,1.5,4.75,3
+[pos_rewards]=0.5,4,4.75,1
+[pos_rules]=0.5,5.5,4.75,3
+
+[middle]="center","center"
+[white]=#FFFFFF
+[black]=#000000
+[bg_color]=#FFFFFF
+
+[FONT_TITRE]="arial",12, TB, [black]
+[FONT_CARAC_REWARDS]="arial",10,T, [black]
+[FONT_RULES]="arial",9,T, [black]
+
+FONT=[FONT_TITRE]
+TEXT=[all_recto],[Titre],[pos_titre],center,wwtop
+FONT=[FONT_CARAC_REWARDS]
+TEXT=[all_recto],[Caractéristiques],[pos_carac],center,wwtop
+FONT=[FONT_CARAC_REWARDS]
+TEXT=[all_recto],[Récompenses],[pos_rewards],center,wwtop
+FONT=[FONT_RULES]
+TEXT=[all_recto],[Règles spéciales],[pos_rules],center,wwtop
+
+;DUPLEX=[all_recto],[all_verso]
+;PRINT=DUPLEX

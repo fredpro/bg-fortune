@@ -1,0 +1,42 @@
+PAGE=21,29.7,PORTRAIT,H
+LINKMULTI=Nb
+link=La Fortune aux Audacieux - V1 - Cartes Matériel.csv
+cardsize=5.75,8.9
+
+[all]="1-{(Titre)*2}"
+[all_recto]="1-{(Titre)}"
+[all_verso]="{(Titre)+1}-{(Titre)*2}"
+
+[pos_titre]=1,0.5,4.25,1.5
+[pos_type]=1.2,8.2,3.35,1.5
+[pos_cost_value]=0.175,0.3,0.75,0.75
+[pos_cost_icon]=0.185,0.3,0.75,0.75
+[pos_desc]=0.5,2,4.75,6
+
+[middle]="center","center"
+[white]=#FFFFFF
+[black]=#000000
+[bg_color]=#FFFFFF
+
+[FONT_TITRE]="arial",12, TB, [black]
+[FONT_TYPE]="arial",10, TI, [black]
+[FONT_DESC]="arial",10,T, [black]
+[FONT_VALUES]="arial",12, TB, [white]
+[FONT_VALUES_BLACK]="arial",12, TB, [black]
+
+FONT=[FONT_TITRE]
+TEXT=[all_recto],[Titre],[pos_titre],center,wwtop
+IF=[Coût]<>""
+    FONT=[FONT_VALUES]
+    VECTOR=[all_recto],".\Icons\001-coin.svg",[pos_cost_icon]
+    TEXT=[all_recto],[Coût],[pos_cost_value],center,wwcenter
+    FONT=[FONT_VALUES_BLACK]
+    TEXT=[all_recto],[Coût],[pos_cost_value],center,wwcenter,0,100,0.02
+ENDIF
+FONT=[FONT_TYPE]
+TEXT=[all_recto],[Type],[pos_type],center,wwtop
+FONT=[FONT_DESC]
+TEXT=[all_recto],[Effet],[pos_desc],center,wwcenter
+
+;DUPLEX=[all_recto],[all_verso]
+;PRINT=DUPLEX
