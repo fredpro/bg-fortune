@@ -1,0 +1,47 @@
+PAGE=21,29.7,PORTRAIT,H
+LINKMULTI=Nb
+link=La Fortune aux Audacieux - V2 - Cartes Objets de Quête.csv
+cardsize=5.75,8.9
+
+[all]="1-{(Titre)*2}"
+[all_recto]="1-{(Titre)}"
+[all_verso]="{(Titre)+1}-{(Titre)*2}"
+
+[pos_titre]=1.25,1,3.75,1.5
+[pos_type]=1.2,8.2,3.35,1.5
+[pos_cost_icon_x]=0.15
+[pos_cost_icon_y]=0.3
+[pos_cost_icon_w]=0.4
+[pos_cost_icon_h]=0.62
+[pos_reputation]=4,0.3,1.5,0.5
+[pos_desc]=0.3,2,5.15,6
+[pos_verso_icon]=1,2,3.75,4.9
+
+[middle]="center","center"
+[white]=#FFFFFF
+[black]=#000000
+[bg_color]=#FFFFFF
+
+[FONT_TITRE]="arial",12, TB, [black]
+[FONT_TYPE]="arial",10, TI, [black]
+[FONT_DESC]="arial",10,T, [black]
+[FONT_VALUES]="arial",12, TB, [white]
+[FONT_VALUES_BLACK]="arial",12, TB, [black]
+
+FONT=[FONT_TITRE]
+TEXT=[all_recto],[Titre],[pos_titre],center,wwtop
+IF=[Coût]<>""
+    FOR=A,1,[Coût]
+        IMAGE=[all_recto],"..\.\Icons\coin_on_card_discard.png",[pos_cost_icon_x]+((A-1)*([pos_cost_icon_w]+0.1)),[pos_cost_icon_y],[pos_cost_icon_w],[pos_cost_icon_h],0,TP
+    NEXT
+ENDIF
+FONT=[FONT_TYPE]
+TEXT=[all_recto],[Type],[pos_type],center,wwtop
+FONT=[FONT_DESC]
+TEXT=[all_recto],[Effet],[pos_desc],center,wwcenter
+TEXT=[all_recto],"Rép : [Réputation]",[pos_reputation],right,wwcenter
+
+VECTOR=[all_verso],"..\.\Icons\001-coin.svg",[pos_verso_icon]
+
+DUPLEX=[all_recto],[all_verso]
+PRINT=DUPLEX

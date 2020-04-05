@@ -1,0 +1,48 @@
+cardsize=1,1
+;LINKMULTI=Nb
+LINK=A l'attaque (_) - V2 - Dés V2.csv
+
+[all]="1-{(Dé)}"
+[pos_text]=0,0,1,1
+[pos_stars]=0.8,0.1,0.1,0.8
+[pos_icon]=0.05,0.75,0.2,0.2
+
+[middle]="center","center"
+[white]=#FFFFFF
+[black]=#000000
+[dark_blue]=#333366
+[color_red]=#ff0000
+[color_orange]=#ff8800
+[color_yellow]=#ffff00
+[FONT_VALUES]="arial",24, TB
+[FONT_VALUES_BLACK]="arial",24, TB, [black]
+[FONT_STARS]="arial",6,T,[black]
+
+IF=[Dé]="Rouge"
+    FONT=[FONT_VALUES],[color_red]
+ELSEIF=[Dé]="Orange"
+    FONT=[FONT_VALUES],[color_orange]
+ELSEIF=[Dé]="Jaune"
+    FONT=[FONT_VALUES],[color_yellow]
+ENDIF
+TEXT=[all],[Valeur],[pos_text],center,wwcenter
+FONT=[FONT_VALUES_BLACK]
+TEXT=[all],[Valeur],[pos_text],center,wwcenter,0,100,0.02
+
+FONT=[FONT_STARS]
+IF=[Critique]=1
+    TEXT=[all],"*",[pos_stars],center,wwtop
+ELSEIF=[Critique]=2
+    TEXT=[all],"*\13\*",[pos_stars],center,wwtop
+ELSEIF=[Critique]=3
+    TEXT=[all],"*\13\*\13\*",[pos_stars],center,wwtop
+ENDIF
+
+IF=[Evenement]="Echec"
+    VECTOR=[all],".\Icons\svg\001-wet-floor.svg",[pos_icon]
+ELSEIF=[Evenement]="Chance"
+    IMAGE=[all],".\Images\002-updated.png",[pos_icon]
+ENDIF
+
+PAGE=21,29.7,PORTRAIT,HV
+MARGINS=0.5,0.5,1,1
